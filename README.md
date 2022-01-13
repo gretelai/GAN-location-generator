@@ -45,13 +45,12 @@ The dataset is downloaded and unzipped at `./datasets/ebike_locations/`.
 - To view training results and loss plots, run `python -m visdom.server` and click the URL http://localhost:8097.
 
 - Train the FastCUT model:
-- 
  ```bash
 python train.py --dataroot ./datasets/ebike_locations --name locations_FastCUT --CUT_mode FastCUT
 ```
 The checkpoints will be stored at `./checkpoints/locations_FastCUT/web`.
 
-- Test the CUT model:
+- Test the FastCUT model:
 ```bash
 python test.py --dataroot ./datasets/ebike_locations --name locations_FastCUT --CUT_mode FastCUT --phase train
 ```
