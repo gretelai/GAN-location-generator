@@ -34,7 +34,7 @@ cd CUT
   For Conda users,  you can create a new Conda environment using `conda env create -f environment.yml`.
 
 
-### CUT and FastCUT Training and Test
+### FastCUT Training and Test
 
 - Download the `ebike_locations` dataset (Maps -> Maps with Scooter Locations)
 ```bash
