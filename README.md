@@ -23,8 +23,8 @@ UC Berkeley and Adobe Research<br>
 
 - Clone this repo:
 ```bash
-git clone https://github.com/gretelai/contrastive-unpaired-translation CUT
-cd CUT
+git clone https://github.com/gretelai/contrastive-unpaired-translation
+cd contrastive-unpaired-translation
 ```
 
 - Install PyTorch 1.1 and other dependencies (e.g., torchvision, visdom, dominate, gputil).
@@ -37,8 +37,8 @@ cd CUT
 ### FastCUT Training and Test
 
 - Download the `ebike_locations` dataset (Maps -> Maps with Scooter Locations)
-```bash
-bash ./datasets/download_ebike_data.sh
+```sh
+sh datasets/download_ebike_data.sh
 ```
 The dataset is downloaded and unzipped at `./datasets/ebike_locations/`.
 
