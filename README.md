@@ -1,10 +1,6 @@
-
-
 # Contrastive Unpaired Translation (CUT)
 
 ### [website](http://taesung.me/ContrastiveUnpairedTranslation/) |   [paper](https://arxiv.org/pdf/2007.15651)
-
-<br><br><br>
 
 We provide our PyTorch implementation of unpaired image-to-image translation based on patchwise contrastive learning and adversarial learning.  No hand-crafted loss and inverse network is used. Compared to [CycleGAN](https://github.com/junyanz/CycleGAN), our model training is faster and less memory-intensive. In addition, our method can be extended to single image training, where each “domain” is only a *single* image.
 
@@ -40,40 +36,40 @@ cd CUT
 
 ### CUT and FastCUT Training and Test
 
-- Download the `gretel_ebike_data` dataset (Maps -> Maps with Scooter Locations)
+- Download the `ebike_locations` dataset (Maps -> Maps with Scooter Locations)
 ```bash
-bash ./datasets/download_ebike_data.sh ebike_data
+bash ./datasets/download_ebike_data.sh
 ```
-The dataset is downloaded and unzipped at `./datasets/ebike_data/`.
+The dataset is downloaded and unzipped at `./datasets/ebike_locations/`.
 
 - To view training results and loss plots, run `python -m visdom.server` and click the URL http://localhost:8097.
 
 - Train the FastCUT model:
 - 
  ```bash
-python train.py --dataroot ./datasets/ebike_data --name ebike_FastCUT --CUT_mode FastCUT
+python train.py --dataroot ./datasets/ebike_locations --name locations_FastCUT --CUT_mode FastCUT
 ```
-The checkpoints will be stored at `./checkpoints/ebike_FastCUT/web`.
+The checkpoints will be stored at `./checkpoints/locations_FastCUT/web`.
 
 - Test the CUT model:
 ```bash
-python test.py --dataroot ./datasets/ebike_data --name ebike_FastCUT --CUT_mode FastCUT --phase train
+python test.py --dataroot ./datasets/ebike_locations --name locations_FastCUT --CUT_mode FastCUT --phase train
 ```
 
-The test results will be saved to a html file here: `./results/ebike_data/latest_train/index.html`.
+The test results will be saved to a html file here: `./results/locations_FastCUT/latest_train/index.html`.
 
 ### Training using our launcher scripts
 
-Please see `experiments/grumpifycat_launcher.py` that generates the above command line arguments. The launcher scripts are useful for configuring rather complicated command-line arguments of training and testing.
+Please see `experiments/location_launcher.py` that generates the above command line arguments. The launcher scripts are useful for configuring rather complicated command-line arguments of training and testing.
 
 Using the launcher, the command below generates the training command of CUT and FastCUT.
 ```bash
-python -m experiments ebike_data train 1   # FastCUT
+python -m experiments location_data train 1  # FastCUT
 ```
 
 To test using the launcher,
 ```bash
-python -m experiments ebike_data test 1   # CUT
+python -m experiments location_data test 1   # FastCUT
 ```
 
 ### Apply a pre-trained CUT model and evaluate FID
@@ -84,18 +80,15 @@ To run the pretrained models, run the following.
 
 # Download and unzip the pretrained models. The weights should be located at
 # checkpoints/horse2zebra_cut_pretrained/latest_net_G.pth, for example.
-wget http://efrosgans.eecs.berkeley.edu/CUT/pretrained_models.tar
-tar -xf pretrained_models.tar
+wget https://gretel-public-website.s3.amazonaws.com/datasets/fastcut_models/pretrained_models.tar.gz
+tar -zxvf pretrained_models.tar.gz
 
 # Generate outputs. The dataset paths might need to be adjusted.
 # To do this, modify the lines of experiments/pretrained_launcher.py
 # [id] corresponds to the respective commands defined in pretrained_launcher.py
-# 0 - FastCUT on ebike_data
+# 1 - FastCUT on ebike_data
 python -m experiments pretrained run_test [id]
 ```
-
-Note: the Cityscapes pretrained model was trained and evaluated on a resized and JPEG-compressed version of the original Cityscapes dataset. To perform evaluation, please download [this](http://efrosgans.eecs.berkeley.edu/CUT/datasets/cityscapes_val_for_CUT.tar) validation set and perform evaluation. 
-
 
 #### Preprocessing of input images
 
