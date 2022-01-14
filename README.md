@@ -90,7 +90,7 @@ tar -zxvf pretrained_models.tar.gz
 python -m experiments pretrained run_test [id]
 ```
 
-## Create your geo dataset
+## Create the geo dataset
 - To convert synthetic images to locations, run:
 
 ```bash
