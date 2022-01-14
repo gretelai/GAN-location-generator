@@ -1,3 +1,18 @@
+### E-bike location dataset
+Download the ebike-locations dataset using the following script. This dataset was generated using one day of public scooter locations gathered via the public GBFS (Global Bike Feed Specification) for Uber scooter locations across the US. Please cite Gretel.ai if you use the data.
+```bash
+sh datasets/download_ebike_data.sh
+```
+- The `ebike-locations` dataset contains 7848 
+- ebike_locations/trainA (7848 images of openstreetmap data containing scooter locations, with centerpoint lat/lon encoded into the image name)
+- ebike_locations/trainB (7848 images of openstreetmap data, paired to trainA but with no locations)
+- ebike_locations/testA (225 images of openstreetmap data of a grid generated for Tokyo)
+- ebike_locations/testB (225 images of openstreetmap data of a grid generated for Tokyo)
+
+Image metadata:
+(base) ➜  trainA identify 0000_37.7541_-122.3930_loc.png
+0000_37.7541_-122.3930_loc.png PNG 512x512 512x512+0+0 8-bit sRGB 367394B 0.000u 0:00.001
+
 ### CUT and CycleGAN Datasets
 Download the CUT and CycleGAN datasets using the following script. Some of the datasets are collected by other researchers and papers. Please cite the original papers if you use the data.
 ```bash
