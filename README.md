@@ -5,7 +5,7 @@
 ## Prerequisites
 - Linux or macOS
 - Python 3
-- CPU or NVIDIA GPU + CUDA CuDNN
+- NVIDIA GPU + CUDA CuDNN
 
 ### Getting started
 
