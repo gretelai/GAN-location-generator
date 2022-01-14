@@ -51,6 +51,16 @@ class Launcher(TmuxLauncher):
                 CUT_mode="FastCUT",
             ),
 
+            # Command 6
+            Options(
+                dataroot="./datasets/ebike_locations/",
+                name="locations_fastcut_pretrained",
+                CUT_mode="FastCUT",
+                preprocess="scale_width",
+                load_size=256,
+                phase="test"
+            ),
+
             
         ]
 

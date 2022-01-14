@@ -85,7 +85,7 @@ tar -zxvf pretrained_models.tar.gz
 # Generate outputs. The dataset paths might need to be adjusted.
 # To do this, modify the lines of experiments/pretrained_launcher.py
 # [id] corresponds to the respective commands defined in pretrained_launcher.py
-# 1 - FastCUT on ebike_data
+# 6 - FastCUT on ebike_data
 python -m experiments pretrained run_test [id]
 ```
 
