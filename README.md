@@ -21,14 +21,28 @@ cd contrastive-unpaired-translation
 
   For Conda users,  you can create a new Conda environment using `conda env create -f environment.yml`.
 
+## Create or download location datasets
 
-### FastCUT Training and Test
+### Download the ebike_locations dataset
 
 - Download the `ebike_locations` dataset (Maps -> Maps with Scooter Locations)
 ```sh
 sh datasets/download_ebike_data.sh
 ```
 The dataset is downloaded and unzipped at `./datasets/ebike_locations/`.
+
+### Create your own training and test sets
+
+- To create the training dataset from our public e-bike dataset of scooter locations in the USA, run:
+
+`python -m location_utils.create_training_data`
+
+- To create a test dataset for a new location, run:
+
+`python -m location_utils.create_test_dataset --lat 35.652832 --lon 139.839478 --name Tokyo`
+
+
+### FastCUT Training and Test
 
 - To view training results and loss plots, run `python -m visdom.server` and click the URL http://localhost:8097.
 
@@ -59,14 +73,13 @@ To test using the launcher,
 python -m experiments locations test 1   # FastCUT
 ```
 
-### Apply a pre-trained CUT model
+### Or, use a pre-trained CUT model
 
 To run a pretrained model, run the following.
 
 ```bash
 
-# Download and unzip the pretrained models. The weights should be located at
-# checkpoints/horse2zebra_cut_pretrained/latest_net_G.pth, for example.
+# Download and unzip the pretrained models
 wget https://gretel-public-website.s3.amazonaws.com/datasets/fastcut_models/pretrained_models.tar.gz
 tar -zxvf pretrained_models.tar.gz
 
@@ -75,6 +88,13 @@ tar -zxvf pretrained_models.tar.gz
 # [id] corresponds to the respective commands defined in pretrained_launcher.py
 # 6 - FastCUT on ebike_data
 python -m experiments pretrained run_test [id]
+```
+
+## Create your geo dataset
+- To convert synthetic images to locations, run:
+
+```bash
+python -m location_utils.images_to_geo --image_path results/locations_FastCUT/test_latest/images/fake_B --name Tokyo.csv
 ```
 
 
