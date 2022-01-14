@@ -31,7 +31,7 @@ sh datasets/download_ebike_data.sh
 ```
 The dataset is downloaded and unzipped at `./datasets/ebike_locations/`.
 
-### Create your own training and test sets
+### Or, create your own training and test sets
 
 - To create the training dataset from our public e-bike dataset of scooter locations in the USA, run:
 
