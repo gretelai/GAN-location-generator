@@ -1,6 +1,10 @@
 # Contrastive Unpaired Translation (CUT)
+Train a GAN on public location data from a few cities to predict realistic e-bike locations across the world.
 
 ## Example Results
+
+<img width="747" alt="Screen Shot 2022-01-17 at 9 28 22 PM" src="https://user-images.githubusercontent.com/6510818/149876299-81e60b56-29ee-416f-810b-96c1382f5389.png">
+
 
 ## Prerequisites
 - Linux or macOS
