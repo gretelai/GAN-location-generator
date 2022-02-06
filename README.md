@@ -31,7 +31,7 @@ cd contrastive-unpaired-translation
 
 - Download the `ebike_locations` dataset (Maps -> Maps with Scooter Locations)
 ```sh
-sh datasets/download_ebike_data.sh
+sh datasets/download_ebike_dataset.sh
 ```
 The dataset is downloaded and unzipped at `./datasets/ebike_locations/`.
 
